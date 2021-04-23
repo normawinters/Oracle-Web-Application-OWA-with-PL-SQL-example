@@ -1,0 +1,18 @@
+--code snip it
+--This is an example of what the code looks like with owa_utl  oracle web application looks like.  You would be able to include the html, scripts css to Oracle package, functions, procedres.
+--This would show the list of user tables to the user interface. similiar to an html application
+-- this functionality needs to be installed owa_utl. https://docs.oracle.com/database/121/ARPLS/w_util.htm#ARPLS397
+
+htp.p('<table>');
+
+for t_rec in (select table_name, owner, tablespace_name
+              from user_tables) loop
+              
+     htp.p('<tr>  <td> Table Name: '||t_rec.table_name  ||'    </td>     </tr>');
+
+end loop;
+
+htp.p('</table>');
+
+--- end of-code snip it
+
